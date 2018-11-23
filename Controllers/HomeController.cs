@@ -12,7 +12,6 @@ namespace ApPets.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.OK = "OK";
             return View();
         }
 
