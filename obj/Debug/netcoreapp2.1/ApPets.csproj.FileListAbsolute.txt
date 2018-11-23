@@ -1,4 +1,3 @@
-C:\Users\gerardo.sanchez\Documents\Visual Studio Code\ApPets\bin\Debug\netcoreapp2.1\app.db
 C:\Users\gerardo.sanchez\Documents\Visual Studio Code\ApPets\bin\Debug\netcoreapp2.1\ApPets.deps.json
 C:\Users\gerardo.sanchez\Documents\Visual Studio Code\ApPets\bin\Debug\netcoreapp2.1\ApPets.runtimeconfig.json
 C:\Users\gerardo.sanchez\Documents\Visual Studio Code\ApPets\bin\Debug\netcoreapp2.1\ApPets.runtimeconfig.dev.json

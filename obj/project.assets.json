@@ -12872,11 +12872,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gerardo.sanchez\\Documents\\Visual Studio Code\\ApPets\\ApPets.csproj",
+      "projectUniqueName": "c:\\Users\\gerardo.sanchez\\Documents\\Visual Studio Code\\ApPets\\ApPets.csproj",
       "projectName": "ApPets",
-      "projectPath": "C:\\Users\\gerardo.sanchez\\Documents\\Visual Studio Code\\ApPets\\ApPets.csproj",
+      "projectPath": "c:\\Users\\gerardo.sanchez\\Documents\\Visual Studio Code\\ApPets\\ApPets.csproj",
       "packagesPath": "C:\\Users\\gerardo.sanchez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gerardo.sanchez\\Documents\\Visual Studio Code\\ApPets\\obj\\",
+      "outputPath": "c:\\Users\\gerardo.sanchez\\Documents\\Visual Studio Code\\ApPets\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
