@@ -5,11 +5,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ApPets.Models;
+using Microsoft.AspNetCore.Identity;
+using ApPets.Data;
 
 namespace ApPets.Controllers
 {
     public class HomeController : Controller
     {
+        public SignInManager<ApPetsUser> _signInManager { get; set; } 
+        public UserManager<ApPetsUser> _userManager { get; set; } 
+
+        public HomeController(SignInManager<ApPetsUser> signInManager, UserManager<ApPetsUser> userManager)
+        {
+            _signInManager = signInManager;
+            _userManager = userManager;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -18,7 +29,6 @@ namespace ApPets.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
