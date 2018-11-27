@@ -35,5 +35,6 @@ namespace ApPets.Data
         public string LastName { get; set; }
         public DateTime UpDate { get; set; }
         public DateTime ModDate { get; set; }
+        public DateTime Birthdate { get; set; }
     }
 }
