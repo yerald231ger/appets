@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApPets.Data;
 
 namespace ApPets.Common
 {
@@ -13,7 +14,7 @@ namespace ApPets.Common
         public string ImageProfileId { get; set; }
 
         public string UserId { get; set; }
-        // public ApplicationUser User { get; set; }
+        public ApPetsUser User { get; set; }
 
         public int PetTypeId { get; set; }
         public PetType PetType { get; set; }
