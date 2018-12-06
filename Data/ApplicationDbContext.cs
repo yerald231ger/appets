@@ -25,6 +25,8 @@ namespace ApPets.Data
             builder.Entity<IdentityUserLogin<string>>().ToTable("tblUserLogin");
             builder.Entity<IdentityRoleClaim<string>>().ToTable("tblRoleClaim");
             builder.Entity<IdentityUserToken<string>>().ToTable("tblUserToken");
+
+            
         }
     }
 
