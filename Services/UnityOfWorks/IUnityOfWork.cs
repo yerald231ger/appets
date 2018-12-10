@@ -11,27 +11,18 @@ namespace ApPets.Services
         Task<int> CompleteAsync();
     }
 
-    public class UOWVeterinaries : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private readonly ApplicationDbContext _context;
+        protected ApplicationDbContext DbContext { get; }
 
-        public IVetServicesRepository VetServices { get; set; }
-        public IPetTypeRepository PetTypes { get; set; }
-        public IPetRepository Pets { get; set; }
-        public IVeterinaryRepository Veterinaries { get; set; }
-
-        public UOWVeterinaries(ApplicationDbContext context)
+        public UnitOfWork(ApplicationDbContext dbContext)
         {
-            _context = context;
-            PetTypes = new PetTypeRepository(context);
-            Veterinaries = new VeterinaryRepository(context);
-            Pets = new PetRepository(context);
-            VetServices = new VetServicesRepository(context);
+            DbContext = dbContext;
         }
 
         public int Complete()
         {
-            return _context.SaveChanges();
+            return DbContext.SaveChanges();
         }
 
         public Task<int> CompleteAsync()
@@ -47,7 +38,7 @@ namespace ApPets.Services
             {
                 if (disposing)
                 {
-                    _context.Dispose();
+                    DbContext.Dispose();
                 }
             }
             _disposed = true;
@@ -57,6 +48,30 @@ namespace ApPets.Services
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+    }
+
+    public interface IUOWVeterinaries : IUnitOfWork
+    {
+        IVetServicesRepository VetServices { get; set; }
+        IPetTypeRepository PetTypes { get; set; }
+        IPetRepository Pets { get; set; }
+        IVeterinaryRepository Veterinaries { get; set; }
+    }
+
+    public class UOWVeterinaries : UnitOfWork, IUOWVeterinaries
+    {
+        public IVetServicesRepository VetServices { get; set; }
+        public IPetTypeRepository PetTypes { get; set; }
+        public IPetRepository Pets { get; set; }
+        public IVeterinaryRepository Veterinaries { get; set; }
+
+        public UOWVeterinaries(ApplicationDbContext context) : base(context)
+        {
+            PetTypes = new PetTypeRepository(DbContext);
+            Veterinaries = new VeterinaryRepository(DbContext);
+            Pets = new PetRepository(DbContext);
+            VetServices = new VetServicesRepository(DbContext);
         }
     }
 }
