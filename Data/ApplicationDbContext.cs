@@ -13,12 +13,12 @@ namespace ApPets.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder); 
+            base.OnModelCreating(builder);
             builder.Entity<ApPetsUser>().ToTable("tblUser");
             builder.Entity<IdentityRole>().ToTable("tblRole");
             builder.Entity<IdentityUserClaim<string>>().ToTable("tblUserClaim");
@@ -66,12 +66,18 @@ namespace ApPets.Data
                 .HasForeignKey(u => u.IdEstado);
             });
 
-            builder.Entity<Veterinary>(build => {
+            builder.Entity<Veterinary>(build =>
+            {
                 build.ToTable("tblVeterinaries");
 
                 build.HasMany(v => v.Services)
                 .WithOne(vs => vs.Veterinary)
                 .HasForeignKey(u => u.IdVeterinary);
+
+
+                build.HasOne(v => v.Estado)
+                .WithMany(e => e.Veterinaries)
+                .HasForeignKey(v => v.IdEstado);
             });
 
             builder.Entity<VetService>().ToTable("tblVetServices");

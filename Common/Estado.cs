@@ -14,5 +14,6 @@ namespace ApPets.Common
 
         public virtual ICollection<Ciudad> Ciudades { get; set; }
         public virtual ICollection<ApPetsUser> Users { get; set; }
+        public virtual ICollection<Veterinary> Veterinaries { get; set; }
     }
 }
