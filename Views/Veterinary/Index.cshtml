@@ -1,0 +1,47 @@
+<form id="commentForm" asp-route-returnUrl="@ViewData[" ReturnUrl"]" method="post">
+    <div class="card">
+        <div class="card-header">
+            <strong>Company</strong>
+            <small>Form</small>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="company">Nombre</label>
+                <input class="form-control" id="company" type="text" placeholder="Nombre de la veterinaria">
+            </div>
+            <div class="form-group">
+                <label for="vat">RFC</label>
+                <input class="form-control" id="vat" type="text" placeholder="SAHG890216FZ9">
+            </div>
+            <div class="form-group">
+                <label for="street">Numero de Contacto</label>
+                <input class="form-control" id="street" type="text" placeholder="Numero de contacto">
+            </div>
+            <div class="form-group">
+                <label for="street">Direccion</label>
+                <input class="form-control" id="street" type="text" placeholder="Ingres Calle y colonia">
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-8">
+                    <label for="city">Ciudad</label>
+                    <input class="form-control" id="city" type="text" placeholder="Ingresa ciudad o municipio">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="postal-code">Codigo postal</label>
+                    <input class="form-control" id="postal-code" type="text" placeholder="Codigo postal">
+                </div>
+            </div>
+            <!-- /.row-->
+            <div class="form-group">
+                <label for="country">Pais</label>
+                <input class="form-control" id="country" type="text" placeholder="Pais">
+            </div>
+            <input type="hidden" name="Latitud" />
+            <input type="hidden" name="Longitud" />
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-sm btn-primary" type="submit">
+                <i class="fa fa-dot-circle-o"></i> Actualizar informacion</button>
+        </div>
+    </div>
+</form>
