@@ -44,9 +44,18 @@ namespace ApPets
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            LoadAppServices(services);
+        }
+
+        public void LoadAppServices(IServiceCollection services)
+        {
             services.AddTransient<IEmailSender, EmailSender>();
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IUOWVeterinaries, UOWVeterinaries>();
+            services.AddTransient<IPaisRepository, PaisRepository>();
+            services.AddTransient<IPetRepository, PetRepository>();
+            services.AddTransient<IPetTypeRepository, PetTypeRepository>();
+            services.AddTransient<IVetServicesRepository, VetServicesRepository>();
+            services.AddTransient<IVeterinaryRepository, VeterinaryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

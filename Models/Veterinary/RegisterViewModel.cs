@@ -1,32 +1,42 @@
 using System.ComponentModel.DataAnnotations;
 
-public class RisterViewModel
+namespace ApPets.Models.Veterinary
 {
-    [Required]
-    public string Name { get; set; }
+    public class RegisterViewModel
+    {
+        [Required]
+        [Display(Name = "Nombre")]
+        public string Name { get; set; }
 
-    [Required]
-    public string RFC { get; set; }
+        [Required]
+        [Display(Name = "RFC")]
+        public string RFC { get; set; }
 
-    [Required]
-    public string PhoneNumber { get; set; }
+        [Required]
+        [Display(Name = "Numero de telefono")]
+        public string PhoneNumber { get; set; }
 
-    [Required]
-    public string Direccion { get; set; }
+        [Required]
+        [Display(Name = "Direccion")]
+        public string Address { get; set; }
 
-    [Required]
-    public string Ciudad { get; set; }
+        [Required]
+        [Display(Name = "Ciudad")]
+        public string Ciudad { get; set; }
 
-    [Required]
-    public string CP { get; set; }
+        [Required]
+        [Display(Name = "Codigo Postal")]
+        public string CP { get; set; }
 
-    [Required]
-    public int IdEstado { get; set; }
+        [Required]
+        [Display(Name = "Estado")]
+        public int IdEstado { get; set; }
 
-    [Required]
-    public int Longitud { get; set; }
+        [Required]
+        public int Longitud { get; set; }
 
-    [Required]
-    public int Latitud { get; set; }
+        [Required]
+        public int Latitud { get; set; }
 
+    }
 }

@@ -57,6 +57,7 @@ namespace ApPets.Services
         IPetTypeRepository PetTypes { get; set; }
         IPetRepository Pets { get; set; }
         IVeterinaryRepository Veterinaries { get; set; }
+        IPaisRepository Pais { get; set; }
     }
 
     public class UOWVeterinaries : UnitOfWork, IUOWVeterinaries
@@ -65,6 +66,7 @@ namespace ApPets.Services
         public IPetTypeRepository PetTypes { get; set; }
         public IPetRepository Pets { get; set; }
         public IVeterinaryRepository Veterinaries { get; set; }
+        public IPaisRepository Pais { get; set; }
 
         public UOWVeterinaries(ApplicationDbContext context) : base(context)
         {
@@ -72,6 +74,7 @@ namespace ApPets.Services
             Veterinaries = new VeterinaryRepository(DbContext);
             Pets = new PetRepository(DbContext);
             VetServices = new VetServicesRepository(DbContext);
+            Pais = new PaisRepository(DbContext);
         }
     }
 }

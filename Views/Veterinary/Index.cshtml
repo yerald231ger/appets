@@ -1,41 +1,62 @@
-<form id="commentForm" asp-route-returnUrl="@ViewData[" ReturnUrl"]" method="post">
+@model ApPets.Models.Veterinary.RegisterViewModel
+@{
+ViewData["Title"] = "Vets";
+}
+
+
+<form id="commentForm" asp-action="Index" method="post">
     <div class="card">
         <div class="card-header">
-            <strong>Company</strong>
-            <small>Form</small>
+            <strong>Alta de veterinaria</strong>
+            <small></small>            
         </div>
         <div class="card-body">
             <div class="form-group">
-                <label for="company">Nombre</label>
-                <input class="form-control" id="company" type="text" placeholder="Nombre de la veterinaria">
+                <label asp-for="Name"></label>   
+                <input asp-for="Name" type="text" class="form-control" placeholder="Nombre de la veterinaria">
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="vat">RFC</label>
-                <input class="form-control" id="vat" type="text" placeholder="SAHG890216FZ9">
+                <label asp-for="RFC"></label>
+                <input asp-for="RFC" type="text" class="form-control" placeholder="SAHG890216FZ9">
+                <span asp-validation-for="RFC" class="text-danger"></span>
+            </div>
+            <div class="form-group">                
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="Numero de telefono">
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="street">Numero de Contacto</label>
-                <input class="form-control" id="street" type="text" placeholder="Numero de contacto">
-            </div>
-            <div class="form-group">
-                <label for="street">Direccion</label>
-                <input class="form-control" id="street" type="text" placeholder="Ingres Calle y colonia">
+                <label asp-for="Address"></label>
+                <input asp-for="Address" type="text" class="form-control" placeholder="Direccion">
+                <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="row">
                 <div class="form-group col-sm-8">
-                    <label for="city">Ciudad</label>
-                    <input class="form-control" id="city" type="text" placeholder="Ingresa ciudad o municipio">
+                    <label asp-for="Ciudad"></label>
+                    <input asp-for="Ciudad" type="text" class="form-control" placeholder="Ciudad">
+                    <span asp-validation-for="Ciudad" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-4">
-                    <label for="postal-code">Codigo postal</label>
-                    <input class="form-control" id="postal-code" type="text" placeholder="Codigo postal">
+                    <label asp-for="CP"></label>
+                    <input asp-for="CP" type="text" class="form-control" placeholder="Codigo Postal">
+                    <span asp-validation-for="CP" class="text-danger"></span>
                 </div>
             </div>
             <!-- /.row-->
-            <div class="form-group">
-                <label for="country">Pais</label>
-                <input class="form-control" id="country" type="text" placeholder="Pais">
+            <div class="row">
+                <div class="form-group col">
+                    <label for="Pais">Pais</label>
+                    @Html.DropDownList("Pais", (IEnumerable<SelectListItem>)ViewBag.Paises,
+                                                   new { @class = "form-control" })
+                </div>                
+                <div class="form-group col">
+                    <label asp-for="IdEstado"></label>
+                    @Html.DropDownListFor(m => m.IdEstado, (IEnumerable<SelectListItem>)ViewBag.Estados,
+                                             new { @class = "form-control" })
+                </div>
             </div>
+            
             <input type="hidden" name="Latitud" />
             <input type="hidden" name="Longitud" />
         </div>
@@ -45,3 +66,22 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+      <script>
+            $("#Pais").change(function myfunction() {
+                $("#Estado").html("");
+                $.getJSON("/api/pais/" + this.value + "/estados", function getEstados(data) {
+
+                    var html = "";
+
+                    data.forEach(function myfunction(obj, index) {
+                        html += "<option value='" + obj.Key + "'>" + obj.Value + "</option>";
+                    });
+
+                    $("#Estado").html(html);
+                });
+            });
+        </script>
+}
