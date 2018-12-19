@@ -20,6 +20,11 @@ public class VeterinaryController : Controller
         ViewBag.Estados = SelectEstados(2, 0);
         return View();
     }
+
+    public IActionResult Edit(){
+        
+        return View();
+    }
     
     private List<SelectListItem> SelectPaises(int defaultSelect = 0)
     {

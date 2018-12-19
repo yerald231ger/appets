@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My page</title>
+    <!-- 1. Add latest jQuery and fancybox files -->
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+</head>
+<body>
+
+    <a data-fancybox="" href="#myVideo">
+        <img class="card-img-top img-fluid" src="https://www.html5rocks.com/en/tutorials/video/basics/poster.png" />
+    </a>
+
+    <div class="card-body">
+        <p class="card-text">HTML5 video from the page</p>
+    </div>
+
+    <video width="640" height="320" controls="" id="myVideo" style="display:none;">
+        <source src="http://player-be.terra.com/ganesha-backend/play/8797447?country=mx&metrics=v7&profile=vod_mobile&h1=MTkxMjIwMTgwMTA3MTYyMDEuMTYyLjE2NS40MywgOTguMTQyLjIzNC4yMDgsIDk4LjE0Mi4yMjkuMjE5LCA5OC4xNDIuMjM0LjE2NiwgMjA4Ljg0LjI0MS4xMw==&h2=zXbhtqI5np8gDtcDPEhp5g==" type="video/mp4"/>
+        Your browser doesn't support HTML5 video tag.
+    </video>
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+</body>
+</html>
